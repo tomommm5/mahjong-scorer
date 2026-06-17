@@ -9,7 +9,9 @@ body {
 .container {
   background-color: #ffffff;
   padding: 20px;
-  max-width: 500px;
+  width: 100%;       /* スマホの時は画面いっぱいに広げる */
+  max-width: 420px;  /* PCやタブレットで開いた時の最大幅（これ以上広がらない） */
+  box-sizing: border-box;
   margin: 0 auto;
   border: 1px solid #ccc;
 }

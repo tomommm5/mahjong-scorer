@@ -299,7 +299,27 @@ function handleRiichi(idx) {
   } else {
     gameState.players[idx].score -= 1000; gameState.riichiSticks += 1; gameState.players[idx].isRiichi = true;
   }
+  
+  // まずは一度画面を更新して、4人目のリーチ棒が引かれた状態にする
   updateGameScreen();
+
+  // 🀄 四家立直（4人全員リーチ）の判定
+  const riichiCount = gameState.players.filter(p => p.isRiichi).length;
+  if (riichiCount === 4) {
+    // 1拍おいてアラートを出す
+    setTimeout(() => {
+      alert("🀄 四家立直（4人全員リーチ）が発生しました！途中流局となります。");
+      
+      // 全員テンパイのため、親連荘で本場が1つ増えます
+      gameState.honba += 1;
+      
+      // 次の局に向けて、プレイヤーの「リーチ宣言中」のフラグだけ戻す（供託棒は残ります）
+      gameState.players.forEach(p => p.isRiichi = false);
+      
+      alert("全員テンパイ扱いのため連荘です！次の本場に進みます。");
+      updateGameScreen();
+    }, 100);
+  }
 }
 
 // ゲーム終了判定（トビなし、東4局終了時のみ）

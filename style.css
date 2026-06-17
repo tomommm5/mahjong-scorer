@@ -1,0 +1,127 @@
+/* 📱 すっきり見やすいモダンなデザイン */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+.player-box {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border-left: 4px solid #3498db;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.riichi-btn {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 13px;
+  background-color: #34495e;
+  margin: 0;
+}
+
+.riichi-btn.active {
+  background-color: #e74c3c;
+}
+
+.sub-form {
+  background: #edf2f7;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f9fa;
+}
+
+.history-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: #fafafa;
+  font-size: 14px;
+}

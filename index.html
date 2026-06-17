@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麻雀スコアラー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div id="setup-screen">
+    <h1>🀄 麻雀スコアラー</h1>
+    <div class="form-group">
+      <label>プレイヤー名（起家から順に）</label>
+      <input type="text" id="p1-name" placeholder="東太郎 (東)" style="margin-bottom: 5px;">
+      <input type="text" id="p2-name" placeholder="南次郎 (南)" style="margin-bottom: 5px;">
+      <input type="text" id="p3-name" placeholder="西三郎 (西)" style="margin-bottom: 5px;">
+      <input type="text" id="p4-name" placeholder="北四郎 (北)">
+    </div>
+    <div class="form-group">
+      <label>開始点数</label>
+      <div class="radio-group">
+        <label><input type="radio" name="start-score" value="25000" checked> 25000点</label>
+        <label><input type="radio" name="start-score" value="30000"> 30000点</label>
+      </div>
+    </div>
+    <button id="start-btn">対局開始</button>
+    <h3 style="margin-top: 25px;">📊 過去の対局履歴（直近5件）</h3>
+    <div id="history-container"></div>
+  </div>
+
+  <div id="game-screen" style="display: none;">
+    <h2 id="display-kyoku">東1局 0本場</h2>
+    <p style="text-align: center; font-size: 14px; color: #666;">
+      供託リーチ棒: <span id="display-riichi-sticks">0</span>本 (<span id="display-riichi-points">0</span>点)
+    </p>
+    
+    <div id="display-players"></div>
+
+    <h3 style="margin-top: 20px;">🎬 局の結果入力</h3>
+    <div class="radio-group">
+      <label><input type="radio" name="kyoku-result" value="ryuukyoku" checked> 流局</label>
+      <label><input type="radio" name="kyoku-result" value="tsumo"> ツモ</label>
+      <label><input type="radio" name="kyoku-result" value="ron"> ロン</label>
+    </div>
+    <button id="result-confirm-btn">結果を入力する</button>
+
+    <div id="ryuukyoku-form" class="sub-form">
+      <h4>聴牌（テンパイ）した人にチェック</h4>
+      <div id="tenpai-checkboxes"></div>
+      <button id="ryuukyoku-calc-btn">流局の点数計算を実行</button>
+    </div>
+
+    <div id="tsumo-form" class="sub-form">
+      <h4>あがった人（ツモ）</h4>
+      <div id="tsumo-player-radios"></div>
+      <label for="tsumo-score-select">あがり点数（積み棒・供託は自動加算）</label>
+      <select id="tsumo-score-select" style="width:100%; padding:8px; margin-bottom:10px;"></select>
+      <button id="tsumo-calc-btn">ツモ計算を実行</button>
+    </div>
+
+    <div id="ron-form" class="sub-form">
+      <h4>あがった人（ロン）</h4>
+      <div id="ron-winner-radios"></div>
+      <h4>振り込んだ人（放銃）</h4>
+      <div id="ron-loser-radios"></div>
+      <label for="ron-score-select">あがり点数（積み棒・供託は自動加算）</label>
+      <select id="ron-score-select" style="width:100%; padding:8px; margin-bottom:10px;"></select>
+      <button id="ron-calc-btn">ロン計算を実行</button>
+    </div>
+  </div>
+
+  <div id="result-screen" style="display: none;">
+    <h2>🏆 対局結果（リザルト）</h2>
+    <p style="font-size: 13px; color: #666; text-align: center;" id="result-desc"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>最終点数</th>
+          <th>増減差分</th>
+        </tr>
+      </thead>
+      <tbody id="result-table-body"></tbody>
+    </table>
+    <button id="back-to-title-btn" style="background-color: #34495e;">タイトルに戻る</button>
+  </div>
+
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
